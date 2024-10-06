@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conway's Game Of Life</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <button id="tickButton">TICK</button>
+<header class="text-center">
+    <h2>El juego de la vida de Conway</h2>
+</header>
+<section id="controles">
+    <header class="text-center">
+        <h3>Controla las generaciones</h3>
+    </header>
+    <div id="time-controls-container" class="centered-container">
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+    </div>
+</section>
+
+
+<section id="canvas-container" class="centered-container">
     <canvas id="canvas"></canvas>
-<script type="module" src="main.js"></script>
+</section>
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>

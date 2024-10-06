@@ -1,0 +1,25 @@
+canvas#canvas {
+    border: 1px solid wheat;
+}
+
+body {
+    background-color: black;
+    color: bisque;
+}
+
+.centered-container {
+    display: flex;
+    margin: 1rem;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#time-controls-container > button {
+    width: auto;
+}
+
+.text-center {
+    text-align: center;
+}

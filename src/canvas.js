@@ -1,8 +1,7 @@
-export const canvasWidth = 800;
-export const canvasHeight = 800;
+import {canvasHeight, canvasWidth} from "./config.js";
 
 let ctx;
-export let canvas;
+let canvas;
 
 const borderColor = "rgb(255, 255, 255)";
 
@@ -22,6 +21,7 @@ export function fillRect(x, y, tileWidth, tileHeight, color) {
     ctx.stroke();
 }
 
-export function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+export function getCanvas() {
+    return canvas;
 }
+
