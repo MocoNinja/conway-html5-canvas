@@ -1,8 +1,9 @@
-import { configureCanvas, getCanvas } from "./canvas.js";
+import { configureCanvas } from "./canvas.js";
 import {configureBoard, updateBoard, renderBoard, getCellIndexFromClick, toggleCell} from "./board.js";
+import { DEFAULT_FPS } from "./config.js";
 
-const FPS = 155;
-const msPerTick = 1000 / FPS;
+let FPS = DEFAULT_FPS;
+let msPerTick = 1000 / FPS;
 let mainThreadIntervalId;
 
 
@@ -12,8 +13,7 @@ function main() {
     //configureBoard([111,112,113,114,115]);
     renderBoard()
     configureListeners();
-
-
+    document.getElementById("fpsDisplay").innerText = `FPS: ${FPS}`;
 }
 
 function configureListeners() {
@@ -21,12 +21,17 @@ function configureListeners() {
     document.getElementById("stopButton").addEventListener('click', stopSimulation);
     document.getElementById("tickButton").addEventListener('click', tick);
     document.getElementById("canvas").addEventListener("click", click);
+    document.getElementById("fpsInput").addEventListener("change", changeFPS);
 }
 
-
-function gameLoop() {
-    tick();
-    setTimeout(gameLoop, msPerTick);
+function changeFPS(event) {
+    FPS = event.target.value;
+    msPerTick = 1000 / FPS;
+    if (mainThreadIntervalId) {
+        stopSimulation();
+        startSimulation();
+    }
+    document.getElementById("fpsDisplay").innerText = `FPS: ${FPS}`;
 }
 
 function tick() {
