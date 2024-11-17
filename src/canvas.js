@@ -17,6 +17,7 @@ export function fillRect(x, y, tileWidth, tileHeight, color) {
     ctx.beginPath();
     ctx.fillStyle = color;
     ctx.rect(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+    ctx.closePath();
     ctx.fill();
     ctx.stroke();
 }
